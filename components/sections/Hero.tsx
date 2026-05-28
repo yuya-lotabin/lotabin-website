@@ -6,7 +6,7 @@ export function Hero() {
       {/* VIDEO */}
       <div className="relative h-screen min-h-[900px] w-full">
         <video
-          src="/media/public/media/mk2-home-hero.ver3.mp4"
+          src="/public/media/mk2-home-hero.ver3.mp4"
           autoPlay
           muted
           loop
