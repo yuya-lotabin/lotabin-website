@@ -1,0 +1,672 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#ece7dc" />
+  <title>lotabin Entertainment — Motion picture studio · Nagoya, Japan</title>
+  <meta name="description" content="A motion picture studio forming in Nagoya, Japan — now open to writers, directors, and crew. Send us your screenplays." />
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32"   href="/assets/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png" />
+  <link rel="apple-touch-icon"      sizes="180x180" href="/assets/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Source+Serif+4:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600&family=Shippori+Mincho+B1:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+
+  <link rel="stylesheet" href="css/tokens.css?v=20260531r" />
+  <link rel="stylesheet" href="css/site.css?v=20260531r" />
+  <link rel="stylesheet" href="css/entertainment.css?v=20260531r" />
+
+  <meta property="og:title" content="lotabin Entertainment — Motion picture studio" />
+  <meta property="og:description" content="Stories that move the world toward compassion. Nagoya, Japan." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://lotabin.com/entertainment.html" />
+  <meta property="og:image" content="https://lotabin.com/assets/og-card.png" />
+  <link rel="canonical" href="https://lotabin.com/entertainment.html" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "lotabin",
+    "legalName": "lotabin LLC",
+    "url": "https://lotabin.com",
+    "logo": "https://lotabin.com/assets/lotabin-logo.png",
+    "image": "https://lotabin.com/assets/lotabin-logo.png",
+    "email": "yuya@lotabin.com",
+    "description": "Short-form video ad production desk and motion picture studio in Nagoya, Japan.",
+    "address": { "@type": "PostalAddress", "addressLocality": "Nagoya", "addressRegion": "Aichi", "addressCountry": "JP" },
+    "subOrganization": { "@type": "Organization", "name": "lotabin Entertainment", "description": "Motion picture studio division of lotabin." },
+    "contactPoint": { "@type": "ContactPoint", "email": "yuya@lotabin.com", "contactType": "customer support", "availableLanguage": ["English", "Japanese"] }
+  }
+  </script>
+
+  <style>
+    /* ===== Submit-a-script form (lives inside the dark .ent-cta) ===== */
+    .ent-submit {
+      max-width: 680px;
+      margin: clamp(40px, 6vh, 72px) auto 0;
+      text-align: left;
+    }
+    .ent-submit-form { display: grid; grid-template-columns: 1fr 1fr; column-gap: clamp(20px, 4vw, 44px); }
+    @media (max-width: 600px) { .ent-submit-form { grid-template-columns: 1fr; } }
+    .ent-submit .field { display: grid; padding: var(--s-4) 0 var(--s-5); position: relative; }
+    .ent-submit .field--wide { grid-column: 1 / -1; }
+    .ent-submit .field label {
+      display: inline-flex; align-items: baseline; gap: 10px;
+      font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--paper-200); opacity: 0.62;
+      margin-bottom: 6px; transition: opacity var(--d-med) var(--e-out), color var(--d-med) var(--e-out);
+    }
+    .ent-submit .field label .f-idx { color: var(--bronze); opacity: 1; letter-spacing: 0.1em; }
+    .ent-submit .field label .opt { text-transform: none; letter-spacing: 0.02em; opacity: 0.7; }
+    .ent-submit .field:focus-within label { opacity: 1; color: var(--paper-50); }
+    .ent-submit .field input,
+    .ent-submit .field textarea {
+      width: 100%; padding: 6px 0 12px;
+      font-family: var(--font-serif); font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem);
+      font-weight: 400; letter-spacing: -0.005em; color: var(--paper-50);
+      background: transparent; border: 0; border-radius: 0; outline: none;
+      -webkit-appearance: none; appearance: none; caret-color: var(--bronze);
+    }
+    .ent-submit .field textarea { min-height: 96px; resize: vertical; line-height: 1.5; }
+    .ent-submit .field input::placeholder,
+    .ent-submit .field textarea::placeholder { color: var(--paper-200); opacity: 0.4; font-style: italic; }
+    .ent-submit .f-line { position: relative; display: block; height: 1px; background: rgba(246,244,239,0.22); }
+    .ent-submit .f-line::after {
+      content: ""; position: absolute; inset: 0; background: var(--bronze);
+      transform: scaleX(0); transform-origin: left; transition: transform 480ms var(--e-out);
+    }
+    .ent-submit .field:focus-within .f-line::after { transform: scaleX(1); }
+    .ent-submit .field.has-error .f-line::after { background: #d27676; transform: scaleX(1); }
+    .ent-submit .field .err {
+      display: none; margin-top: 8px; font-family: var(--font-mono);
+      font-size: 0.74rem; letter-spacing: 0.05em; color: #e7a3a3;
+    }
+    .ent-submit .field.has-error .err { display: block; }
+    .ent-submit .field--hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+    .ent-submit .actions {
+      grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: var(--s-4);
+      align-items: center; justify-content: space-between;
+      margin-top: var(--s-4); padding-top: var(--s-5);
+      border-top: 1px solid rgba(246,244,239,0.16);
+    }
+    .ent-submit .actions .btn { min-width: 210px; justify-content: center; }
+    .ent-submit .actions .btn[disabled] { opacity: 0.6; cursor: progress; }
+    .ent-submit .fallback {
+      font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.06em;
+      color: var(--paper-200); opacity: 0.7; display: inline-flex; gap: 8px; flex-wrap: wrap;
+    }
+    .ent-submit .fallback a { color: var(--paper-50); border-bottom: 1px solid rgba(246,244,239,0.3); transition: color var(--d-med) var(--e-out), border-color var(--d-med) var(--e-out); }
+    .ent-submit .fallback a:hover { color: var(--bronze); border-bottom-color: var(--bronze); }
+    .ent-submit .form-status { display: none; grid-column: 1 / -1; margin-top: var(--s-4); padding: 10px 0; font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: 0.03em; }
+    .ent-submit .form-status.is-error { display: block; color: #f1c8c8; border-top: 1px solid rgba(210,118,118,0.45); }
+    .ent-submit .form-status.is-error a { color: #fff; border-bottom: 1px solid rgba(241,200,200,0.5); }
+    /* success state replaces the form */
+    .ent-submit-success { display: none; text-align: left; }
+    .ent-submit-success .kbd-rule { color: var(--bronze); justify-content: flex-start; }
+    .ent-submit-success h3 { font-family: var(--font-display); font-weight: 500; font-size: var(--fs-h2); letter-spacing: -0.025em; line-height: 1.02; color: var(--paper-50); margin: var(--s-5) 0 0; }
+    .ent-submit-success p { margin-top: var(--s-5); color: var(--paper-200); max-width: 48ch; font-family: var(--font-serif); font-size: var(--fs-lead); line-height: 1.55; }
+    .ent-submit-success p a { color: var(--paper-50); border-bottom: 1px solid rgba(246,244,239,0.3); }
+    .ent-submit-success p a:hover { color: var(--bronze); border-bottom-color: var(--bronze); }
+    .ent-submit.is-sent .ent-submit-form { display: none; }
+    .ent-submit.is-sent .ent-submit-success { display: block; animation: entSuccessIn 700ms var(--e-out) both; }
+    @keyframes entSuccessIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ===== Hero film embed (replaces hero sub copy) ===== */
+    /* Shared slot: video, logo and copy stack in one cell so the
+       block below never shifts up/down as they swap. */
+    /* Hero stage: video slot + actions box side-by-side on desktop */
+    .ent-hero-stage {
+      margin: var(--s-6) 0 0;
+    }
+    .ent-hero-slot {
+      display: grid;
+      max-width: 760px;
+    }
+    .ent-hero-aside .hero-cta { margin: 0; }
+    @media (min-width: 900px) {
+      .ent-hero-stage {
+        display: flex;
+        align-items: center;
+        gap: clamp(28px, 3.4vw, 56px);
+      }
+      .ent-hero-slot {
+        flex: 1 1 auto;
+        min-width: 0;
+        max-width: none;
+      }
+      .ent-hero-aside {
+        flex: 0 0 auto;
+        width: clamp(240px, 25vw, 320px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .ent-hero-aside .hero-cta {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--s-4);
+        width: 100%;
+      }
+      .ent-hero-aside .hero-cta .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+    @media (max-width: 899px) {
+      .ent-hero-aside { margin-top: var(--s-6); }
+    }
+    .ent-hero-slot > * {
+      grid-area: 1 / 1;
+      margin: 0;
+    }
+    .ent-hero-slot > .ent-hero-logo {
+      align-self: center;
+      justify-self: center;
+    }
+    .ent-hero-slot > .ent-hero-sub-after {
+      align-self: center;
+    }
+    .ent-hero-video {
+      transition: opacity 600ms var(--e-out);
+    }
+    .ent-hero-video video {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      background: var(--ink-900, #0d0d11);
+      /* feather the frame edges into the paper */
+      -webkit-mask-image:
+        linear-gradient(to right, transparent 0, #000 9%, #000 91%, transparent 100%),
+        linear-gradient(to bottom, transparent 0, #000 9%, #000 91%, transparent 100%);
+      -webkit-mask-composite: source-in;
+      mask-image:
+        linear-gradient(to right, transparent 0, #000 9%, #000 91%, transparent 100%),
+        linear-gradient(to bottom, transparent 0, #000 9%, #000 91%, transparent 100%);
+      mask-composite: intersect;
+    }
+    .ent-hero-video.is-fading { opacity: 0; pointer-events: none; }
+    .ent-hero-sub-after { animation: entSubFadeIn 700ms var(--e-out) both; }
+    @keyframes entSubFadeIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ===== Brand logo reveal (between film and mission copy) ===== */
+    .ent-hero-logo {
+      display: flex;
+      align-items: center;
+      gap: clamp(16px, 2vw, 26px);
+      opacity: 0;
+      transition: opacity 700ms var(--e-out);
+    }
+    .ent-hero-logo.is-in { opacity: 1; }
+    .ent-hero-logo .ehl-mark {
+      height: clamp(72px, 8vw, 104px);
+      width: auto;
+    }
+    .ent-hero-logo .ehl-word {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(2rem, 1.2rem + 2.6vw, 3.1rem);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      color: var(--ink-900, #16161a);
+    }
+    .ent-hero-logo .ehl-word em { font-style: italic; }
+    @media (prefers-reduced-motion: reduce) {
+      .ent-hero-logo, .ent-hero-video { transition: none; }
+    }
+
+    /* ===== Open-call band ===== */
+    .call-points {
+      display: grid; grid-template-columns: 1fr; gap: 1px;
+      background: var(--ent-rule);
+      border-top: 1px solid var(--ent-rule);
+      border-bottom: 1px solid var(--ent-rule);
+    }
+    @media (min-width: 768px) { .call-points { grid-template-columns: repeat(3, 1fr); } }
+    .call-point { background: var(--paper-50); padding: var(--s-7) var(--s-5); display: flex; flex-direction: column; gap: var(--s-4); }
+    .call-point .k { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--bronze-deep); }
+    .call-point p { font-family: var(--font-serif); font-size: 1.06rem; line-height: 1.62; color: var(--paper-700); margin: 0; }
+  </style>
+
+  <!-- seo:v1 — discoverability layer (SEO · GEO · AEO · LLMO) -->
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="author" content="lotabin" />
+  <meta name="publisher" content="lotabin" />
+  <meta name="copyright" content="lotabin LLC" />
+  <meta http-equiv="content-language" content="en, ja" />
+  <meta name="geo.region" content="JP-23" />
+  <meta name="geo.placename" content="Nagoya, Aichi, Japan" />
+  <meta name="geo.position" content="35.1815;136.9066" />
+  <meta name="ICBM" content="35.1815, 136.9066" />
+  <link rel="alternate" hreflang="en" href="https://lotabin.com/entertainment.html" />
+  <link rel="alternate" hreflang="ja" href="https://lotabin.com/entertainment.html" />
+  <link rel="alternate" hreflang="x-default" href="https://lotabin.com/entertainment.html" />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta property="og:site_name" content="lotabin" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="ja_JP" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="lotabin — short-form video ad production desk, Nagoya, Japan" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://lotabin.com/assets/og-card.png" />
+  <meta name="twitter:image:alt" content="lotabin — short-form video ad production desk, Nagoya, Japan" />
+  <meta name="twitter:title" content="lotabin Entertainment — Motion picture studio" />
+  <meta name="twitter:description" content="A motion picture studio forming in Nagoya, Japan — now open to writers, directors, and crew. Send us your screenplays." />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://lotabin.com/entertainment.html#webpage",
+      "url": "https://lotabin.com/entertainment.html",
+      "name": "lotabin Entertainment — Motion picture studio",
+      "isPartOf": {
+        "@id": "https://lotabin.com/#website"
+      },
+      "about": {
+        "@id": "https://lotabin.com/#organization"
+      },
+      "inLanguage": "en",
+      "description": "Stories that move the world toward compassion. Nagoya, Japan."
+    },
+    {
+      "@type": "Organization",
+      "name": "lotabin Entertainment",
+      "parentOrganization": {
+        "@id": "https://lotabin.com/#organization"
+      },
+      "url": "https://lotabin.com/entertainment.html",
+      "description": "Motion picture studio division of lotabin — films that inspire compassion for life.",
+      "location": {
+        "@type": "Place",
+        "name": "Nagoya, Japan"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://lotabin.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "lotabin Entertainment",
+          "item": "https://lotabin.com/entertainment.html"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body class="ent">
+
+  <!-- ============== HEADER ============== -->
+  <header class="site-header on-paper" id="site-header">
+    <a href="#top" class="brand-mark" aria-label="lotabin Entertainment home">
+      <img src="assets/transparent.png" alt="lotabin" />
+      <span>lotabin <em style="font-style: italic; font-weight: 400; opacity: 0.7;">Entertainment</em></span>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#philosophy" data-i18n="ent.nav.philosophy">Philosophy</a>
+      <a href="#contact" data-i18n="ent.cta.btn1">Submit a screenplay</a>
+      <a href="index.html" data-i18n="ent.nav.video">Video desk</a>
+    </nav>
+
+    <div class="nav-tools">
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button type="button" data-lang="en" class="active">EN</button>
+        <button type="button" data-lang="ja">JA</button>
+      </div>
+      <button class="menu-btn" type="button" data-menu-btn aria-controls="mobile-menu" aria-expanded="false" aria-label="Menu">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 4h12M1 10h12"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <nav id="mobile-menu" class="mobile-menu" data-mobile-menu aria-label="Mobile">
+    <a href="#philosophy" data-i18n="ent.nav.philosophy">Philosophy</a>
+    <a href="#contact" data-i18n="ent.cta.btn1">Submit a screenplay</a>
+    <a href="index.html" data-i18n="ent.nav.video">Video desk</a>
+  </nav>
+
+  <main id="top">
+
+    <!-- ============== HERO ============== -->
+    <section class="ent-hero">
+      <div class="ent-hero-bg"></div>
+      <div class="ent-marquee" aria-hidden="true">storytelling · storytelling · storytelling · storytelling · 物語 · 物語 ·</div>
+
+      <div class="inner">
+        <div class="hero-top">
+          <div class="ent-eyebrow reveal" data-i18n="ent.hero.kicker">lotabin Entertainment · 名古屋</div>
+          <div class="kbd-rule reveal" style="color: var(--paper-700);">
+            <span class="dot live"></span>
+            <span data-i18n="ent.hero.status">Now open to writers worldwide</span>
+          </div>
+        </div>
+
+        <h1 class="ent-title">
+          <span class="mask-line"><span data-i18n="ent.hero.h1.1">Stories that move</span></span>
+          <span class="mask-line"><span data-i18n="ent.hero.h1.2"><em>the world</em></span></span>
+          <span class="mask-line"><span data-i18n="ent.hero.h1.3">toward compassion.</span></span>
+        </h1>
+
+        <div class="ent-hero-stage">
+          <div class="ent-hero-slot">
+            <figure class="ent-hero-video reveal-up" id="heroFilm">
+              <video src="assets/Your story and beyond.mp4" autoplay muted playsinline preload="metadata" disablepictureinpicture controlslist="nofullscreen nodownload noremoteplayback"></video>
+            </figure>
+            <div class="ent-hero-logo" id="heroLogo" hidden aria-hidden="true">
+              <img src="assets/transparent.png" alt="" class="ehl-mark" />
+              <span class="ehl-word">lotabin <em>Entertainment</em></span>
+            </div>
+            <p class="ent-sub ent-hero-sub-after" data-i18n="ent.hero.sub" hidden>
+              A growing motion picture studio in Japan, gathering creative minds from different story backgrounds, industries, and skills — united by one mission: to create entertainment that only human excellence and compassion can produce.
+            </p>
+          </div>
+
+          <div class="ent-hero-aside reveal-up">
+            <div class="hero-cta">
+              <a href="#contact" class="btn btn-dark" data-magnetic="0.18">
+                <span data-i18n="ent.hero.cta1">Submit a screenplay</span>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+              </a>
+              <a href="#philosophy" class="btn btn-ghost" data-i18n="ent.hero.cta2">Read our vision</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== PHILOSOPHY ============== -->
+    <section id="philosophy" class="philosophy">
+      <div class="container">
+        <p class="quote reveal-up" data-i18n="ent.phil.quote">The power of storytelling has always been the true core of every great motion picture.</p>
+
+        <div class="stack">
+          <p class="reveal" data-i18n="ent.phil.p1">lotabin is more than an advertising video production partner — it is a growing motion picture studio based in Japan. We work with talented individuals all around the world to create films that genuinely move people, that spread true compassion for life, and that, in their own way, move us toward a world without war.</p>
+          <p class="reveal" data-i18n="ent.phil.p2">We make this vision possible by gathering creative minds from different story backgrounds, industries, and skills. Each of us comes from a different starting point, but we all aim to fulfill the same mission. In this era of artificial intelligence, we meet the moment with human excellence and compassion — to create the kind of entertainment only we can produce.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== OPEN CALL ============== -->
+    <section id="call" class="section" style="border-top: 1px solid var(--ent-rule);">
+      <div class="container">
+        <div class="ent-shead">
+          <div class="meta">
+            <span class="kbd-rule reveal" style="color: var(--paper-700);" data-i18n="ent.call.eyebrow">An open call</span>
+          </div>
+          <div>
+            <h2 class="reveal" data-i18n="ent.call.h2">The studio is just beginning. <em>The first pages are yours to write.</em></h2>
+            <p class="desc reveal" style="margin-top: var(--s-5);" data-i18n="ent.call.lead">We are at the very start — gathering the writers, directors, and stories that will become the first lotabin films. There is no closed roster and no house style. If your story moves toward compassion, we want to read it.</p>
+          </div>
+        </div>
+
+        <div class="call-points reveal-stagger">
+          <div class="call-point">
+            <span class="k" data-i18n="ent.call.1.k">Any stage</span>
+            <p data-i18n="ent.call.1.t">A logline, an outline, or a finished draft — send whatever exists today. We read early, and we read everything.</p>
+          </div>
+          <div class="call-point">
+            <span class="k" data-i18n="ent.call.2.k">Any origin</span>
+            <p data-i18n="ent.call.2.t">Any language, any country. Write to us in English or Japanese — we work across both.</p>
+          </div>
+          <div class="call-point">
+            <span class="k" data-i18n="ent.call.3.k">One throughline</span>
+            <p data-i18n="ent.call.3.t">Stories with a genuine compassion for life at their core. That is the only brief.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== ENT CTA ============== -->
+    <section class="ent-cta" id="contact">
+      <h2 class="big reveal-up" data-i18n="ent.cta.h">If your story moves<br>toward the same horizon —<br><em>send it.</em></h2>
+      <p class="sub reveal" data-i18n="ent.cta.sub">Writers, directors, producers, and crew: we read everything. Cold submissions, finished drafts, half-finished outlines. If it belongs here, you'll hear back.</p>
+
+      <div class="ent-submit reveal" data-submit-wrap>
+        <form class="ent-submit-form" id="submit-form" novalidate>
+          <!-- Web3Forms config -->
+          <input type="hidden" name="access_key" value="f9608412-82eb-4e17-9474-b9a4341d6b7d">
+          <input type="hidden" name="subject" value="New screenplay submission via lotabin.com">
+          <input type="hidden" name="from_name" value="lotabin Entertainment — submissions">
+          <input type="hidden" name="redirect" value="false">
+          <!-- honeypot -->
+          <div class="field field--hp" aria-hidden="true">
+            <label>Leave this empty</label>
+            <input type="text" name="botcheck" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="field" data-field="name">
+            <label for="sf-name"><span class="f-idx" aria-hidden="true">01</span><span data-i18n="ent.submit.name">Your name</span></label>
+            <input id="sf-name" name="name" type="text" autocomplete="name" required>
+            <span class="f-line" aria-hidden="true"></span>
+            <span class="err" data-i18n="ent.submit.err.required">This field is required.</span>
+          </div>
+
+          <div class="field" data-field="email">
+            <label for="sf-email"><span class="f-idx" aria-hidden="true">02</span><span data-i18n="ent.submit.email">Email</span></label>
+            <input id="sf-email" name="email" type="email" autocomplete="email" required>
+            <span class="f-line" aria-hidden="true"></span>
+            <span class="err" data-i18n="ent.submit.err.email">Please enter a valid email.</span>
+          </div>
+
+          <div class="field" data-field="title">
+            <label for="sf-title"><span class="f-idx" aria-hidden="true">03</span><span data-i18n="ent.submit.title">Project title</span><span class="opt" data-i18n="ent.submit.optional">(optional)</span></label>
+            <input id="sf-title" name="project_title" type="text">
+            <span class="f-line" aria-hidden="true"></span>
+          </div>
+
+          <div class="field" data-field="link">
+            <label for="sf-link"><span class="f-idx" aria-hidden="true">04</span><span data-i18n="ent.submit.link">Link to script</span><span class="opt" data-i18n="ent.submit.optional">(optional)</span></label>
+            <input id="sf-link" name="script_link" type="url" placeholder="Drive, Dropbox, or PDF URL">
+            <span class="f-line" aria-hidden="true"></span>
+          </div>
+
+          <div class="field field--wide" data-field="message">
+            <label for="sf-message"><span class="f-idx" aria-hidden="true">05</span><span data-i18n="ent.submit.message">Logline &amp; a few words about it</span></label>
+            <textarea id="sf-message" name="message" required placeholder="Genre, stage of the draft, and what it's about."></textarea>
+            <span class="f-line" aria-hidden="true"></span>
+            <span class="err" data-i18n="ent.submit.err.required">This field is required.</span>
+          </div>
+
+          <div class="form-status" id="submit-status" role="status" aria-live="polite"></div>
+
+          <div class="actions">
+            <button type="submit" class="btn btn-primary" data-magnetic="0.12">
+              <span data-i18n="ent.cta.btn1">Submit a screenplay</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+            </button>
+            <span class="fallback">
+              <span data-i18n="ent.submit.fallback">Prefer plain email?</span>
+              <a href="mailto:yuya@lotabin.com?subject=Screenplay%20submission">yuya@lotabin.com</a>
+            </span>
+          </div>
+        </form>
+
+        <div class="ent-submit-success" id="submit-success" role="region" aria-live="polite">
+          <span class="kbd-rule" aria-hidden="true">Received</span>
+          <h3 data-i18n="ent.submit.success.h">Your script is in.</h3>
+          <p data-i18n="ent.submit.success.p">Thank you for trusting us with it. Yuya reads every submission personally and will write back from <a href="mailto:yuya@lotabin.com">yuya@lotabin.com</a>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============== FOOTER ============== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="grid">
+        <div>
+          <a href="#top" class="brand-mark" style="font-size: 1.6rem; color: var(--paper-50);">
+            <img src="assets/transparent.png" alt="lotabin" />
+            <span>lotabin <em style="font-style: italic; font-weight: 400; opacity: 0.7;">Entertainment</em></span>
+          </a>
+          <p style="margin-top: var(--s-4); max-width: 36ch;" data-i18n="foot.tag">Short-form video ad production desk · Motion picture studio · Nagoya, Japan</p>
+        </div>
+        <div>
+          <h5 data-i18n="ent.nav.philosophy">Philosophy</h5>
+          <a href="#philosophy" data-i18n="ent.nav.philosophy">Philosophy</a>
+          <a href="#call" data-i18n="ent.nav.call">Open call</a>
+          <a href="#contact" data-i18n="ent.cta.btn1">Submit a screenplay</a>
+        </div>
+        <div>
+          <h5 data-i18n="foot.col3.h">Studio</h5>
+          <a href="mailto:yuya@lotabin.com">yuya@lotabin.com</a>
+          <a href="faq.html">FAQ</a>
+          <a href="index.html" data-i18n="ent.nav.video">Video desk</a>
+        </div>
+        <div>
+          <h5 data-i18n="nav.contact">Contact</h5>
+          <a href="mailto:yuya@lotabin.com">yuya@lotabin.com</a>
+          <a href="#contact" data-i18n="ent.cta.btn1">Submit a screenplay</a>
+        </div>
+      </div>
+      <div class="legal">
+        <span data-i18n="foot.legal">© 2026 lotabin LLC — All rights reserved</span>
+        <span data-i18n="foot.location">Nagoya 名古屋 · Japan</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/i18n.js?v=20260611ja"></script>
+  <script src="js/anim.js?v=20260622a"></script>
+
+  <!-- ============== Screenplay submission handler ============== -->
+  <script>
+    (function () {
+      const form = document.getElementById('submit-form');
+      const wrap = document.querySelector('[data-submit-wrap]');
+      const status = document.getElementById('submit-status');
+      if (!form || !wrap || !status) return;
+
+      form.querySelector('textarea[name="message"]')?.addEventListener('keydown', (e) => {
+        if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') form.requestSubmit();
+      });
+
+      form.querySelectorAll('input, textarea').forEach((el) => {
+        el.addEventListener('input', () => {
+          el.closest('.field')?.classList.remove('has-error');
+          status.classList.remove('is-error');
+          status.textContent = '';
+        });
+      });
+
+      function t(key, fallback) {
+        try {
+          const lang = window.LOTABIN_I18N?.getLang?.() || 'en';
+          const dict = window.LOTABIN_I18N?.DICT?.[lang] || window.LOTABIN_I18N?.DICT?.en || {};
+          return dict[key] || fallback;
+        } catch { return fallback; }
+      }
+
+      function validate() {
+        let ok = true;
+        ['name', 'email', 'message'].forEach((name) => {
+          const fieldEl = form.querySelector(`[data-field="${name}"]`);
+          const input = form.querySelector(`[name="${name}"]`);
+          if (!input || !fieldEl) return;
+          const val = (input.value || '').trim();
+          fieldEl.classList.remove('has-error');
+          if (!val) { fieldEl.classList.add('has-error'); ok = false; return; }
+          if (name === 'email') {
+            const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRe.test(val)) { fieldEl.classList.add('has-error'); ok = false; }
+          }
+        });
+        return ok;
+      }
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        status.classList.remove('is-error');
+        status.textContent = '';
+        if (!validate()) return;
+
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const labelSpan = submitBtn.querySelector('span');
+        const originalLabel = labelSpan.textContent;
+        submitBtn.disabled = true;
+        labelSpan.textContent = t('contact.sending', 'Sending…');
+
+        try {
+          const fd = new FormData(form);
+          const accessKey = fd.get('access_key');
+          if (!accessKey || accessKey === 'YOUR_WEB3FORMS_ACCESS_KEY') {
+            throw new Error('Form not yet configured.');
+          }
+          const res = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: fd,
+            headers: { 'Accept': 'application/json' },
+          });
+          const data = await res.json().catch(() => ({}));
+          if (!res.ok || data.success === false) {
+            throw new Error(data.message || 'Submission failed');
+          }
+          wrap.classList.add('is-sent');
+          const successEl = document.getElementById('submit-success');
+          if (successEl) {
+            const y = successEl.getBoundingClientRect().top + window.scrollY - Math.max(0, (window.innerHeight - successEl.offsetHeight) / 2);
+            window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+          }
+        } catch (err) {
+          status.classList.add('is-error');
+          status.innerHTML = t('contact.error', 'Something went wrong. Please email <a href="mailto:yuya@lotabin.com">yuya@lotabin.com</a> directly.');
+        } finally {
+          submitBtn.disabled = false;
+          labelSpan.textContent = originalLabel;
+        }
+      });
+    })();
+
+    /* Hero film → brand logo → mission copy */
+    (function () {
+      const fig = document.getElementById('heroFilm');
+      if (!fig) return;
+      const video = fig.querySelector('video');
+      const logo = document.getElementById('heroLogo');
+      const sub = document.querySelector('.ent-hero-sub-after');
+      if (!video || !logo || !sub) return;
+      let swapped = false;
+      function run() {
+        if (swapped) return;
+        swapped = true;
+        // 1. fade the film out (kept in flow so the slot height is preserved)
+        fig.classList.add('is-fading');
+        setTimeout(function () {
+          // 2. fade the brand logo in
+          logo.hidden = false;
+          requestAnimationFrame(function () { logo.classList.add('is-in'); });
+          // 3. hold, then fade logo out and reveal the mission copy
+          setTimeout(function () {
+            logo.classList.remove('is-in');
+            setTimeout(function () {
+              logo.hidden = true;
+              sub.hidden = false;
+            }, 700);
+          }, 2000);
+        }, 600);
+      }
+      video.addEventListener('ended', run);
+    })();
+  </script>
+</body>
+</html>

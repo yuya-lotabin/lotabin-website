@@ -1,0 +1,91 @@
+# robots.txt — lotabin.com
+# Posture: marketing site that WANTS maximum discovery + AI citation.
+# We explicitly welcome reputable AI search, retrieval and training crawlers.
+# (User-agent names verified against vendor docs, June 2026.)
+
+# ----- Default: everything is open -----
+User-agent: *
+Allow: /
+
+# ----- Traditional search -----
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# ----- OpenAI (ChatGPT) -----
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+# ----- Anthropic (Claude) -----
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# ----- Perplexity -----
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# ----- Google AI (Gemini / AI Overviews training) -----
+User-agent: Google-Extended
+Allow: /
+
+# ----- Apple Intelligence -----
+User-agent: Applebot-Extended
+Allow: /
+
+# ----- Microsoft Copilot -----
+User-agent: BingPreview
+Allow: /
+
+# ----- Amazon / Meta / Cohere / Common Crawl / others -----
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: MistralAI-User
+Allow: /
+
+# Sitemap + machine-readable brand map
+Sitemap: https://lotabin.com/sitemap.xml

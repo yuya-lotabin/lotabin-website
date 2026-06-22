@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0d0d11" />
+  <title>lotabin — Instant Ad Blueprint</title>
+  <meta name="description" content="Self-serve $29 Instant Ad Blueprint — submit your product details and receive an AI-generated ad blueprint with a sales angle, hooks, script, storyboard, and CTA." />
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32"   href="/assets/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png" />
+  <link rel="apple-touch-icon"      sizes="180x180" href="/assets/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Source+Serif+4:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600&family=Shippori+Mincho+B1:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+
+  <link rel="stylesheet" href="css/tokens.css?v=20260531r" />
+  <link rel="stylesheet" href="css/intake.css?v=6" />
+
+  <style>
+    html, body { height: 100%; background: var(--ink-900); }
+    body { margin: 0; overflow: hidden; }
+    #root { height: 100%; }
+    .grain::before { z-index: 70; }
+
+    /* Blueprint-desk-only rail flourishes (built on the shared if-* system) */
+    .bp-rail-card {
+      margin-top: var(--s-5);
+      border: 1px solid var(--if-line-strong);
+      border-radius: 14px;
+      padding: var(--s-5);
+      background: linear-gradient(180deg, color-mix(in oklab, var(--if-accent) 10%, transparent), transparent);
+      display: flex; flex-direction: column; gap: 6px;
+    }
+    .bp-rail-ic { width: 22px; height: 22px; color: var(--if-accent); }
+    .bp-rail-name { font-family: var(--font-display); font-size: 1.15rem; letter-spacing: -.01em; margin-top: 6px; }
+    .bp-rail-price { font-family: var(--font-mono); font-size: .62rem; letter-spacing: .16em; text-transform: uppercase; color: var(--if-accent); }
+    .bp-rail-list { list-style: none; margin: 10px 0 0; padding: 0; display: flex; flex-direction: column; gap: 7px; }
+    .bp-rail-list li { font-size: .82rem; line-height: 1.35; color: var(--fg-muted); padding-left: 16px; position: relative; }
+    .bp-rail-list li::before { content: ""; position: absolute; left: 0; top: .55em; width: 5px; height: 5px; border-radius: 50%; background: var(--if-accent); opacity: .7; }
+
+    .bp-note {
+      margin-top: var(--s-6);
+      font-family: var(--font-mono); font-size: .68rem; line-height: 1.6;
+      letter-spacing: .04em; color: var(--fg-muted);
+      border-left: 2px solid var(--if-line-strong); padding-left: 14px; max-width: 60ch;
+    }
+  </style>
+
+  <link rel="canonical" href="https://lotabin.com/blueprint.html" />
+
+  <!-- seo:v1 — discoverability layer (SEO · GEO · AEO · LLMO) -->
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="author" content="lotabin" />
+  <meta name="publisher" content="lotabin" />
+  <meta name="copyright" content="lotabin LLC" />
+  <meta http-equiv="content-language" content="en, ja" />
+  <meta name="geo.region" content="JP-23" />
+  <meta name="geo.placename" content="Nagoya, Aichi, Japan" />
+  <meta name="geo.position" content="35.1815;136.9066" />
+  <meta name="ICBM" content="35.1815, 136.9066" />
+  <link rel="alternate" hreflang="en" href="https://lotabin.com/blueprint.html" />
+  <link rel="alternate" hreflang="ja" href="https://lotabin.com/blueprint.html" />
+  <link rel="alternate" hreflang="x-default" href="https://lotabin.com/blueprint.html" />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta property="og:site_name" content="lotabin" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="ja_JP" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="lotabin — short-form video ad production desk, Nagoya, Japan" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://lotabin.com/assets/og-card.png" />
+  <meta name="twitter:image:alt" content="lotabin — short-form video ad production desk, Nagoya, Japan" />
+  <meta property="og:title" content="lotabin — Instant Ad Blueprint" />
+  <meta property="og:description" content="Self-serve $29 Instant Ad Blueprint — submit your product details and receive an AI-generated ad blueprint with a sales angle, hooks, script, storyboard, and CTA." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://lotabin.com/blueprint.html" />
+  <meta property="og:image" content="https://lotabin.com/assets/og-card.png" />
+  <meta name="twitter:title" content="lotabin — Instant Ad Blueprint" />
+  <meta name="twitter:description" content="Self-serve $29 Instant Ad Blueprint — submit your product details and receive an AI-generated ad blueprint with a sales angle, hooks, script, storyboard, and CTA." />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://lotabin.com/blueprint.html#webpage",
+      "url": "https://lotabin.com/blueprint.html",
+      "name": "lotabin — Instant Ad Blueprint",
+      "isPartOf": {
+        "@id": "https://lotabin.com/#website"
+      },
+      "about": {
+        "@id": "https://lotabin.com/#organization"
+      },
+      "inLanguage": "en",
+      "description": "Instant Ad Blueprint — lotabin short-form video ad production."
+    },
+    {
+      "@type": "Service",
+      "name": "Instant Ad Blueprint",
+      "serviceType": "Short-form video ad production",
+      "provider": {
+        "@id": "https://lotabin.com/#organization"
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Worldwide"
+      },
+      "offers": {
+        "@type": "Offer",
+        "name": "Instant Ad Blueprint",
+        "price": "299",
+        "priceCurrency": "USD",
+        "url": "https://lotabin.com/blueprint.html",
+        "availability": "https://schema.org/InStock",
+        "category": "OneTime"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://lotabin.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Services",
+          "item": "https://lotabin.com/services.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Instant Ad Blueprint",
+          "item": "https://lotabin.com/blueprint.html"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body class="grain">
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="blueprint-app.jsx?v=1"></script>
+</body>
+</html>

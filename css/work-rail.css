@@ -1,0 +1,136 @@
+/* ============================================================
+   Selected Work — horizontal reel
+   The card row travels right→left as the section is scrolled.
+   Default (no JS / reduced-motion): a native swipeable rail.
+   .is-pinned (added by js/work-rail.js): scroll-jacked, the
+   section pins and the row is driven by vertical scroll.
+   ============================================================ */
+
+.work-rail-section .work-rail-track { position: relative; }
+
+/* --- Fallback: native horizontal scroll --- */
+.work-rail-viewport {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.work-rail-viewport::-webkit-scrollbar { display: none; }
+
+.work-rail {
+  display: flex;
+  gap: var(--s-5);
+  width: max-content;
+  padding: var(--s-5) clamp(16px, 5vw, 80px);
+}
+.work-rail .work-card {
+  flex: 0 0 auto;
+  width: min(80vw, 560px);
+  margin: 0;
+}
+
+/* --- End-of-reel panel → Selected Work archive --- */
+.work-rail .work-rail-end {
+  flex: 0 0 auto;
+  align-self: stretch;
+  width: min(72vw, 340px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--s-5);
+  padding: 0 clamp(20px, 3vw, 52px);
+  text-decoration: none;
+  color: var(--paper-50);
+}
+.work-rail-end .wre-h {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.6rem, 4.4vw, 4rem);
+  line-height: 0.96;
+  letter-spacing: -0.025em;
+}
+.work-rail-end .wre-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  width: max-content;
+  padding-bottom: 9px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--paper-50);
+  border-bottom: 1px solid var(--rule-strong);
+  transition: gap var(--d-med) var(--e-out), color var(--d-med) var(--e-out), border-color var(--d-med) var(--e-out);
+}
+.work-rail-end:hover .wre-link {
+  gap: 20px;
+  color: var(--bronze);
+  border-color: var(--bronze);
+}
+.work-rail-end .wre-link svg { flex: 0 0 auto; }
+
+/* --- Section heading that sits above the reel and lifts away on scroll --- */
+.work-rail-heading {
+  margin: 0 0 var(--s-4);
+  padding: 0 clamp(16px, 5vw, 80px);
+}
+
+/* --- Pinned scroll-jacked mode --- */
+.work-rail-section.is-pinned .work-rail-viewport {
+  position: sticky;
+  top: var(--site-header-height, 76px);
+  height: calc(100svh - var(--site-header-height, 76px));
+  min-height: 520px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.work-rail-section.is-pinned .work-rail {
+  padding-block: 0;
+  will-change: transform;
+}
+
+/* Edge feather so cards fade in/out at the viewport sides while pinned */
+.work-rail-section.is-pinned .work-rail-viewport {
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%);
+          mask-image: linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%);
+}
+
+/* While pinned, the heading sits right above the centred thumbnail row and
+   rises straight up out of frame as the reel begins to travel. --wrh-out
+   (0→1) is driven from the rail's scroll progress in js/work-rail.js. */
+.work-rail-section.is-pinned .work-rail-heading {
+  position: absolute;
+  top: clamp(16px, 9%, 84px);
+  left: 0; right: auto;
+  width: max-content;
+  max-width: 100%;
+  margin: 0;
+  z-index: 4;
+  pointer-events: auto;
+  transform: translate3d(0, calc(var(--wrh-out, 0) * -150%), 0);
+  opacity: calc(1 - var(--wrh-out, 0));
+  will-change: transform, opacity;
+}
+
+/* --- Inline video playback inside a card frame --- */
+.work-rail .work-card .work-embed {
+  position: absolute; inset: 0; z-index: 3;
+  width: 100%; height: 100%; border: 0; display: block;
+  background: #000; object-fit: cover;
+}
+.work-rail .work-card[data-playing="1"] .work-media::after { display: none; }
+.work-rail .work-card[data-playing="1"] { cursor: default; transform: none; }
+
+.work-soon {
+  position: absolute; inset: 0; z-index: 3;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 8px; text-align: center; padding: var(--s-5);
+  background: rgba(7,7,10,0.78);
+  -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+}
+.work-soon-k {
+  font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--bronze);
+}
+.work-soon-t { color: var(--fg-muted); font-size: 0.9rem; }

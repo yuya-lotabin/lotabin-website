@@ -1,0 +1,772 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0d0d11" />
+  <title>lotabin — Contact · Nagoya, Japan</title>
+  <meta name="description" content="Send a message to the lotabin video-ad production desk in Nagoya. Replies from yuya@lotabin.com within one business day." />
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32"   href="/assets/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png" />
+  <link rel="apple-touch-icon"      sizes="180x180" href="/assets/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Source+Serif+4:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600&family=Shippori+Mincho+B1:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+
+  <link rel="stylesheet" href="css/tokens.css?v=20260531r" />
+  <link rel="stylesheet" href="css/site.css?v=20260602d" />
+
+  <meta property="og:title" content="lotabin — Contact" />
+  <meta property="og:description" content="Open a conversation with the lotabin video-ad production desk in Nagoya, Japan." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://lotabin.com/contact.html" />
+  <meta property="og:image" content="https://lotabin.com/assets/og-card.png" />
+  <link rel="canonical" href="https://lotabin.com/contact.html" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "lotabin",
+    "legalName": "lotabin LLC",
+    "url": "https://lotabin.com",
+    "logo": "https://lotabin.com/assets/lotabin-logo.png",
+    "image": "https://lotabin.com/assets/lotabin-logo.png",
+    "email": "yuya@lotabin.com",
+    "description": "Short-form video ad production desk and motion picture studio in Nagoya, Japan.",
+    "address": { "@type": "PostalAddress", "addressLocality": "Nagoya", "addressRegion": "Aichi", "addressCountry": "JP" },
+    "contactPoint": { "@type": "ContactPoint", "email": "yuya@lotabin.com", "contactType": "customer support", "availableLanguage": ["English", "Japanese"] }
+  }
+  </script>
+
+  <style>
+    /* ===== Contact page — editorial "call sheet" treatment ===== */
+
+    .contact-section {
+      padding-top: clamp(120px, 20vh, 200px);
+      padding-bottom: clamp(96px, 14vh, 150px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Vertical kanji accent — 対話 "dialogue" — pure decoration */
+    .contact-kanji {
+      position: absolute;
+      top: clamp(96px, 16vh, 170px);
+      right: clamp(8px, 3vw, 56px);
+      writing-mode: vertical-rl;
+      font-family: 'Shippori Mincho B1', var(--font-display), serif;
+      font-weight: 500;
+      font-size: clamp(72px, 11vw, 168px);
+      line-height: 1;
+      letter-spacing: 0.18em;
+      color: var(--paper-50);
+      opacity: 0.045;
+      pointer-events: none;
+      user-select: none;
+      white-space: nowrap;
+    }
+    @media (max-width: 880px) { .contact-kanji { display: none; } }
+
+    .contact-head { max-width: 1000px; }
+    .contact-head .h-title {
+      font-family: var(--font-display);
+      font-size: var(--fs-h1);
+      font-weight: 500;
+      line-height: 0.96;
+      letter-spacing: -0.03em;
+      margin: var(--s-5) 0 0;
+      color: var(--paper-50);
+    }
+    .contact-head .h-title em { color: var(--bronze); font-style: italic; font-weight: 400; }
+    .contact-head .lead { margin-top: var(--s-5); max-width: 52ch; }
+    .contact-head .lead a { color: var(--paper-50); border-bottom: 1px solid var(--rule-strong); transition: color var(--d-med) var(--e-out), border-color var(--d-med) var(--e-out); }
+    .contact-head .lead a:hover { color: var(--bronze); border-color: var(--bronze); }
+
+    /* ---- The sheet: hairline-divided two-column ---- */
+    .contact-sheet {
+      margin-top: clamp(48px, 8vh, 88px);
+      border-top: 1px solid var(--rule-strong);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+    }
+    @media (min-width: 880px) {
+      .contact-sheet { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.4fr); }
+    }
+
+    /* ---- Left rail: studio meta ---- */
+    .contact-aside { padding: clamp(28px, 4vw, 48px) 0 0; }
+    @media (min-width: 880px) {
+      .contact-aside { border-right: 1px solid var(--rule); padding-right: clamp(28px, 5vw, 72px); padding-bottom: var(--s-7); }
+    }
+
+    .meta-row {
+      display: grid;
+      gap: 10px;
+      padding: var(--s-5) 0 var(--s-6);
+    }
+    .meta-row + .meta-row { border-top: 1px solid var(--rule); }
+    .meta-row .lbl {
+      font-family: var(--font-mono);
+      font-size: var(--fs-eyebrow);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .meta-row .val {
+      font-family: var(--font-serif);
+      font-size: clamp(1.15rem, 1rem + 0.7vw, 1.55rem);
+      font-weight: 400;
+      letter-spacing: -0.005em;
+      color: var(--paper-50);
+      line-height: 1.3;
+    }
+    a.val.mail-link {
+      width: fit-content;
+      position: relative;
+      transition: color var(--d-med) var(--e-out);
+    }
+    a.val.mail-link::after {
+      content: "";
+      position: absolute; left: 0; bottom: -3px;
+      width: 100%; height: 1px;
+      background: var(--bronze);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform var(--d-med) var(--e-out);
+    }
+    a.val.mail-link:hover { color: var(--bronze); }
+    a.val.mail-link:hover::after { transform: scaleX(1); }
+
+    .meta-row .val .jp { font-family: 'Shippori Mincho B1', serif; color: var(--fg-muted); font-size: 0.8em; margin-left: 8px; }
+
+    /* live local-time clock */
+    .clock-row .val { font-family: var(--font-mono); font-size: clamp(1.05rem, 0.95rem + 0.5vw, 1.3rem); letter-spacing: 0.08em; display: inline-flex; align-items: baseline; gap: 12px; }
+    .clock-row .tz { font-size: 0.72rem; letter-spacing: 0.2em; color: var(--fg-muted); text-transform: uppercase; }
+
+    /* ---- Right: the form, treated like a printed sheet ---- */
+    .contact-formwrap { padding: clamp(28px, 4vw, 48px) 0 0; }
+    @media (min-width: 880px) {
+      .contact-formwrap { padding-left: clamp(28px, 5vw, 72px); }
+    }
+
+    .contact-form { display: grid; grid-template-columns: 1fr; gap: 0; }
+    @media (min-width: 680px) {
+      .contact-form { grid-template-columns: 1fr 1fr; column-gap: clamp(28px, 4vw, 56px); }
+      .field--wide { grid-column: 1 / -1; }
+    }
+
+    .field { display: grid; gap: 0; padding: var(--s-4) 0 var(--s-5); position: relative; }
+
+    .field label {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 12px;
+      font-family: var(--font-mono);
+      font-size: var(--fs-eyebrow);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      margin-bottom: 6px;
+      transition: color var(--d-med) var(--e-out);
+    }
+    .field label .f-idx { color: var(--bronze); font-size: 0.66rem; letter-spacing: 0.12em; }
+    .field label .opt { text-transform: none; letter-spacing: 0.04em; color: var(--ink-500); margin-left: 2px; }
+    .field:focus-within label { color: var(--paper-50); }
+
+    .field input,
+    .field textarea {
+      width: 100%;
+      padding: 8px 0 14px;
+      font-family: var(--font-serif);
+      font-size: clamp(1.2rem, 1.05rem + 0.6vw, 1.5rem);
+      font-weight: 400;
+      letter-spacing: -0.005em;
+      color: var(--paper-50);
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+      caret-color: var(--bronze);
+    }
+    .field textarea { min-height: 120px; resize: vertical; line-height: 1.5; }
+    .field input::placeholder,
+    .field textarea::placeholder { color: var(--ink-500); font-style: italic; }
+
+    /* baseline rule + bronze focus draw */
+    .field .f-line {
+      position: relative;
+      display: block;
+      height: 1px;
+      background: var(--rule-strong);
+    }
+    .field .f-line::after {
+      content: "";
+      position: absolute; inset: 0;
+      background: var(--bronze);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 480ms var(--e-out);
+    }
+    .field:focus-within .f-line::after { transform: scaleX(1); }
+    .field.has-error .f-line::after { background: #d27676; transform: scaleX(1); }
+
+    .field .err {
+      display: none;
+      margin-top: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      color: #d27676;
+    }
+    .field.has-error .err { display: block; }
+
+    /* honeypot — invisible to humans, present in DOM for bots */
+    .field--hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+
+    .contact-form .actions {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--s-5);
+      align-items: center;
+      justify-content: space-between;
+      margin-top: var(--s-5);
+      padding-top: var(--s-6);
+      border-top: 1px solid var(--rule);
+    }
+    .contact-form .actions .btn { min-width: 200px; justify-content: center; }
+    .contact-form .actions .btn[disabled] { opacity: 0.6; cursor: progress; }
+    .contact-form .fallback {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      color: var(--fg-muted);
+      display: inline-flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .contact-form .fallback a { color: var(--paper-50); border-bottom: 1px solid var(--rule-strong); transition: color var(--d-med) var(--e-out), border-color var(--d-med) var(--e-out); }
+    .contact-form .fallback a:hover { color: var(--bronze); border-bottom-color: var(--bronze); }
+
+    .form-status {
+      display: none;
+      grid-column: 1 / -1;
+      margin-top: var(--s-4);
+      padding: 12px 0;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+    }
+    .form-status.is-error { display: block; color: #f1c8c8; border-top: 1px solid rgba(210, 118, 118, 0.45); }
+    .form-status.is-error a { color: #fff; border-bottom: 1px solid rgba(241, 200, 200, 0.5); }
+
+    /* ---- Success state — replaces the form ---- */
+    .contact-success { display: none; padding: clamp(28px, 4vw, 48px) 0 var(--s-7); }
+    @media (min-width: 880px) { .contact-success { padding-left: clamp(28px, 5vw, 72px); } }
+    .contact-success .kbd-rule { color: var(--bronze); }
+    .contact-success h3 {
+      font-family: var(--font-display);
+      font-size: var(--fs-h2);
+      font-weight: 500;
+      letter-spacing: -0.025em;
+      line-height: 1.02;
+      color: var(--paper-50);
+      margin: var(--s-5) 0 0;
+    }
+    .contact-success p { margin-top: var(--s-5); color: var(--fg-muted); max-width: 44ch; font-size: var(--fs-lead); font-weight: 300; line-height: 1.55; }
+    .contact-success p a { color: var(--paper-50); border-bottom: 1px solid var(--rule-strong); }
+    .contact-success p a:hover { color: var(--bronze); border-bottom-color: var(--bronze); }
+
+    .is-sent .contact-formwrap { display: none; }
+    .is-sent .contact-success { display: block; animation: successIn 700ms var(--e-out) both; }
+    @keyframes successIn {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+
+  <!-- seo:v1 — discoverability layer (SEO · GEO · AEO · LLMO) -->
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="author" content="lotabin" />
+  <meta name="publisher" content="lotabin" />
+  <meta name="copyright" content="lotabin LLC" />
+  <meta http-equiv="content-language" content="en, ja" />
+  <meta name="geo.region" content="JP-23" />
+  <meta name="geo.placename" content="Nagoya, Aichi, Japan" />
+  <meta name="geo.position" content="35.1815;136.9066" />
+  <meta name="ICBM" content="35.1815, 136.9066" />
+  <link rel="alternate" hreflang="en" href="https://lotabin.com/contact.html" />
+  <link rel="alternate" hreflang="ja" href="https://lotabin.com/contact.html" />
+  <link rel="alternate" hreflang="x-default" href="https://lotabin.com/contact.html" />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta property="og:site_name" content="lotabin" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="ja_JP" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="lotabin — short-form video ad production desk, Nagoya, Japan" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://lotabin.com/assets/og-card.png" />
+  <meta name="twitter:image:alt" content="lotabin — short-form video ad production desk, Nagoya, Japan" />
+  <meta name="twitter:title" content="lotabin — Contact" />
+  <meta name="twitter:description" content="Send a message to the lotabin video-ad production desk in Nagoya. Replies from yuya@lotabin.com within one business day." />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "ProfessionalService",
+        "Organization"
+      ],
+      "@id": "https://lotabin.com/#organization",
+      "name": "lotabin",
+      "legalName": "lotabin LLC",
+      "url": "https://lotabin.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://lotabin.com/assets/lotabin-logo.png"
+      },
+      "image": "https://lotabin.com/assets/og-card.png",
+      "email": "yuya@lotabin.com",
+      "description": "Short-form video ad production desk and motion picture studio in Nagoya, Japan. lotabin scripts, storyboards and produces launch-ready short-form video ads for brands, founders, agencies and media buyers.",
+      "slogan": "Enabling businesses to the strategy of storytelling.",
+      "founder": {
+        "@type": "Person",
+        "name": "Yuya Kagawa"
+      },
+      "foundingLocation": {
+        "@type": "Place",
+        "name": "Nagoya, Japan"
+      },
+      "knowsLanguage": [
+        "en",
+        "ja"
+      ],
+      "areaServed": {
+        "@type": "Place",
+        "name": "Worldwide"
+      },
+      "priceRange": "$149–$3,497+",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "",
+        "addressLocality": "Nagoya",
+        "addressRegion": "Aichi",
+        "postalCode": "",
+        "addressCountry": "JP"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 35.1815,
+        "longitude": 136.9066
+      },
+      "knowsAbout": [
+        "short-form video ads",
+        "video advertising",
+        "storyboarding",
+        "creative testing",
+        "paid social creative",
+        "UGC ads",
+        "film production",
+        "motion picture"
+      ],
+      "sameAs": [],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "yuya@lotabin.com",
+        "contactType": "customer support",
+        "availableLanguage": [
+          "English",
+          "Japanese"
+        ]
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "lotabin video ad production plans",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Instant Ad Blueprint",
+            "price": "299",
+            "priceCurrency": "USD",
+            "url": "https://lotabin.com/blueprint.html",
+            "description": "$299 one-time"
+          },
+          {
+            "@type": "Offer",
+            "name": "Sprout — Creative Pilot",
+            "price": "149",
+            "priceCurrency": "USD",
+            "url": "https://lotabin.com/services-sprout.html",
+            "description": "$149 one-time"
+          },
+          {
+            "@type": "Offer",
+            "name": "Standard — Campaign Builder",
+            "price": "997",
+            "priceCurrency": "USD",
+            "url": "https://lotabin.com/services-standard.html",
+            "description": "$997/month"
+          },
+          {
+            "@type": "Offer",
+            "name": "Pro — Creative Testing Engine",
+            "price": "1997",
+            "priceCurrency": "USD",
+            "url": "https://lotabin.com/services-pro.html",
+            "description": "$1997/month"
+          },
+          {
+            "@type": "Offer",
+            "name": "Scale — Creative Department",
+            "price": "3497",
+            "priceCurrency": "USD",
+            "url": "https://lotabin.com/services-enterprise.html",
+            "description": "From $3497/month"
+          }
+        ]
+      }
+    },
+    {
+      "@type": "ContactPage",
+      "@id": "https://lotabin.com/contact.html#webpage",
+      "url": "https://lotabin.com/contact.html",
+      "name": "lotabin — Contact",
+      "isPartOf": {
+        "@id": "https://lotabin.com/#website"
+      },
+      "about": {
+        "@id": "https://lotabin.com/#organization"
+      },
+      "inLanguage": "en",
+      "description": "Open a conversation with the lotabin video-ad production desk in Nagoya, Japan."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://lotabin.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Contact",
+          "item": "https://lotabin.com/contact.html"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body class="grain">
+
+  <!-- ============== HEADER ============== -->
+  <header class="site-header" id="site-header">
+    <a href="index.html" class="brand-mark" aria-label="lotabin home">
+      <img src="assets/transparent.png" alt="lotabin" />
+      <span>lotabin</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary">
+      <span class="nav-drop">
+        <button type="button" class="nav-drop-trigger" data-i18n="nav.work" aria-haspopup="true">How We Craft</button>
+        <span class="nav-drop-menu" aria-label="How we craft">
+          <a href="principle.html" data-i18n="nav.craft.principle">Our Principle</a>
+                    <a href="team.html" data-i18n="nav.craft.team">The Team</a>
+        </span>
+      </span>
+      <a href="services.html" class="nav-brk"><span data-i18n="nav.brands">Services</span></a>
+      <a href="index.html#top" class="nav-home" aria-label="Home"><span class="nav-home-mark" aria-hidden="true"></span></a>
+      <a href="work.html" data-i18n="nav.craft.selected">Selected Work</a>
+      <a href="contact.html"        data-i18n="nav.contact" aria-current="page">Contact</a>
+    </nav>
+
+    <div class="nav-tools">
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button type="button" data-lang="en" class="active">EN</button>
+        <button type="button" data-lang="ja">JA</button>
+      </div>
+      <button class="menu-btn" type="button" data-menu-btn aria-controls="mobile-menu" aria-expanded="false" aria-label="Menu">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 4h12M1 10h12" /></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- mobile menu -->
+  <nav id="mobile-menu" class="mobile-menu" data-mobile-menu aria-label="Mobile">
+    <span class="menu-group-label" data-i18n="nav.work">How We Craft</span>
+    <a href="principle.html" class="menu-sub" data-i18n="nav.craft.principle">Our Principle</a>
+    <a href="work.html" class="menu-sub" data-i18n="nav.craft.selected">Selected Work</a>
+    <a href="team.html" class="menu-sub" data-i18n="nav.craft.team">The Team</a>
+    <a href="services.html" class="nav-brk"><span data-i18n="nav.brands">Services</span></a>
+    <a href="work.html" data-i18n="nav.craft.selected">Selected Work</a>
+    <a href="contact.html"        data-i18n="nav.contact" aria-current="page">Contact</a>
+  </nav>
+
+  <main id="top">
+    <section class="section contact-section" id="contact" data-screen-label="Contact">
+      <span class="contact-kanji" aria-hidden="true">対話</span>
+
+      <div class="container">
+        <div class="contact-head">
+          <span class="kbd-rule reveal" data-i18n="contact.eyebrow">06 — Contact</span>
+          <h1 class="h-title reveal" data-i18n="contact.h">Open a <em>conversation</em>.</h1>
+          <p class="lead muted reveal" data-i18n="contact.lead">Tell us a bit about what you need. We'll write back from <a href="mailto:yuya@lotabin.com">yuya@lotabin.com</a> within one business day.</p>
+        </div>
+
+        <div class="contact-sheet" data-contact-wrap>
+          <!-- LEFT: studio meta rail -->
+          <aside class="contact-aside reveal">
+            <div class="meta-row">
+              <span class="lbl" data-i18n="contact.direct.lbl">Direct email</span>
+              <a class="val mail-link" href="mailto:yuya@lotabin.com">yuya@lotabin.com</a>
+            </div>
+            <div class="meta-row">
+              <span class="lbl" data-i18n="contact.reply.lbl">Reply window</span>
+              <span class="val" data-i18n="contact.reply.val">1 business day</span>
+            </div>
+            <div class="meta-row">
+              <span class="lbl" data-i18n="contact.loc.lbl">Studio</span>
+              <span class="val">Nagoya<span class="jp">名古屋</span></span>
+            </div>
+            <div class="meta-row clock-row">
+              <span class="lbl"><span class="dot live" aria-hidden="true"></span><span data-i18n="contact.time.lbl">Local time</span></span>
+              <span class="val"><span id="studio-clock">--:--</span><span class="tz">JST · UTC+9</span></span>
+            </div>
+          </aside>
+
+          <!-- RIGHT: form -->
+          <div class="contact-formwrap reveal">
+            <form class="contact-form" id="contact-form" novalidate>
+              <!-- Web3Forms hidden config -->
+              <input type="hidden" name="access_key" value="f9608412-82eb-4e17-9474-b9a4341d6b7d">
+              <input type="hidden" name="subject" value="New inquiry via lotabin.com">
+              <input type="hidden" name="from_name" value="lotabin.com contact form">
+              <input type="hidden" name="redirect" value="false">
+              <!-- honeypot — invisible field; if a bot fills it, Web3Forms rejects the submission -->
+              <div class="field field--hp" aria-hidden="true">
+                <label>Leave this empty</label>
+                <input type="text" name="botcheck" tabindex="-1" autocomplete="off">
+              </div>
+
+              <div class="field" data-field="name">
+                <label for="cf-name"><span class="f-idx" aria-hidden="true">01</span><span data-i18n="contact.field.name">Your name</span></label>
+                <input id="cf-name" name="name" type="text" autocomplete="name" required>
+                <span class="f-line" aria-hidden="true"></span>
+                <span class="err" data-i18n="contact.err.required">This field is required.</span>
+              </div>
+
+              <div class="field" data-field="email">
+                <label for="cf-email"><span class="f-idx" aria-hidden="true">02</span><span data-i18n="contact.field.email">Email</span></label>
+                <input id="cf-email" name="email" type="email" autocomplete="email" required>
+                <span class="f-line" aria-hidden="true"></span>
+                <span class="err" data-i18n="contact.err.email">Please enter a valid email.</span>
+              </div>
+
+              <div class="field field--wide" data-field="company">
+                <label for="cf-company"><span class="f-idx" aria-hidden="true">03</span><span data-i18n="contact.field.company">Company / brand</span><span class="opt" data-i18n="contact.optional">(optional)</span></label>
+                <input id="cf-company" name="company" type="text" autocomplete="organization">
+                <span class="f-line" aria-hidden="true"></span>
+              </div>
+
+              <div class="field field--wide" data-field="message">
+                <label for="cf-message"><span class="f-idx" aria-hidden="true">04</span><span data-i18n="contact.field.message">Message</span></label>
+                <textarea id="cf-message" name="message" required></textarea>
+                <span class="f-line" aria-hidden="true"></span>
+                <span class="err" data-i18n="contact.err.required">This field is required.</span>
+              </div>
+
+              <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+
+              <div class="actions">
+                <button type="submit" class="btn btn-primary" data-magnetic="0.12">
+                  <span data-i18n="contact.submit">Send message</span>
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"></path></svg>
+                </button>
+                <span class="fallback">
+                  <span data-i18n="contact.fallback">Prefer plain email?</span>
+                  <a href="mailto:yuya@lotabin.com">yuya@lotabin.com</a>
+                </span>
+              </div>
+            </form>
+          </div>
+
+          <!-- SUCCESS STATE -->
+          <div class="contact-success" id="contact-success" role="region" aria-live="polite">
+            <span class="kbd-rule" aria-hidden="true">06.1 — Received</span>
+            <h3 data-i18n="contact.success.h">Message received.</h3>
+            <p data-i18n="contact.success.p">Thank you. Yuya will write back from <a href="mailto:yuya@lotabin.com">yuya@lotabin.com</a> within one business day.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============== FOOTER ============== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="grid">
+        <div>
+          <a href="index.html" class="brand-mark" style="font-size: 1.6rem;">
+            <img src="assets/transparent.png" alt="lotabin" />
+            <span data-i18n="foot.brand">lotabin</span>
+          </a>
+          <p style="margin-top: var(--s-4); max-width: 36ch;" data-i18n="foot.tag">Short-form video ad production desk · Motion picture studio · Nagoya, Japan</p>
+        </div>
+        <div>
+          <h5 data-i18n="nav.work">How We Craft</h5>
+          <a href="principle.html" data-i18n="nav.craft.principle">Our Principle</a>
+                    <a href="team.html" data-i18n="nav.craft.team">The Team</a>
+        </div>
+        <div>
+          <h5 data-i18n="nav.brands">Services</h5>
+          <a href="services.html" data-i18n="foot.col1.h">For Brands</a>
+          <a href="services-partners.html" data-i18n="foot.col2.h">For Agencies</a>
+          <a href="intake.html" data-i18n="workpage.cta.btn">Start a brief</a>
+        </div>
+        <div>
+          <h5 data-i18n="foot.col3.h">Studio</h5>
+          <a href="mailto:yuya@lotabin.com">yuya@lotabin.com</a>
+          <a href="faq.html">FAQ</a>
+          <a href="contact.html" data-i18n="nav.contact">Contact</a>
+        </div>
+      </div>
+      <div class="legal">
+        <span data-i18n="foot.legal">© 2026 lotabin LLC — All rights reserved</span>
+        <span data-i18n="foot.location">Nagoya 名古屋 · Japan</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/i18n.js?v=20260611ja"></script>
+  <script src="js/anim.js?v=20260622a"></script>
+
+  <!-- ============== Studio clock (Nagoya, JST) ============== -->
+  <script>
+    (function () {
+      const el = document.getElementById('studio-clock');
+      if (!el) return;
+      const fmt = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Tokyo', hour: '2-digit', minute: '2-digit', hour12: false });
+      function tick() { el.textContent = fmt.format(new Date()); }
+      tick();
+      setInterval(tick, 15000);
+    })();
+  </script>
+
+  <!-- ============== Contact form submit handler ============== -->
+  <script>
+    (function () {
+      const form = document.getElementById('contact-form');
+      const wrap = document.querySelector('[data-contact-wrap]');
+      const status = document.getElementById('form-status');
+      if (!form || !wrap || !status) return;
+
+      // Auto-focus first field on desktop (skip on touch to avoid keyboard popping up)
+      const firstInput = form.querySelector('input[name="name"]');
+      if (firstInput && window.matchMedia('(min-width: 880px)').matches) {
+        setTimeout(() => firstInput.focus(), 200);
+      }
+
+      // Cmd/Ctrl+Enter from textarea submits the form
+      form.querySelector('textarea[name="message"]')?.addEventListener('keydown', (e) => {
+        if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') form.requestSubmit();
+      });
+
+      // Clear error styling as soon as the user starts fixing the field
+      form.querySelectorAll('input, textarea').forEach((el) => {
+        el.addEventListener('input', () => {
+          el.closest('.field')?.classList.remove('has-error');
+          status.classList.remove('is-error');
+          status.textContent = '';
+        });
+      });
+
+      function t(key, fallback) {
+        try {
+          const lang = window.LOTABIN_I18N?.getLang?.() || 'en';
+          const dict = window.LOTABIN_I18N?.DICT?.[lang] || window.LOTABIN_I18N?.DICT?.en || {};
+          return dict[key] || fallback;
+        } catch { return fallback; }
+      }
+
+      function validate() {
+        let ok = true;
+        const fields = ['name', 'email', 'message'];
+        fields.forEach((name) => {
+          const fieldEl = form.querySelector(`[data-field="${name}"]`);
+          const input = form.querySelector(`[name="${name}"]`);
+          if (!input || !fieldEl) return;
+          const val = (input.value || '').trim();
+          fieldEl.classList.remove('has-error');
+          if (!val) { fieldEl.classList.add('has-error'); ok = false; return; }
+          if (name === 'email') {
+            const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRe.test(val)) { fieldEl.classList.add('has-error'); ok = false; }
+          }
+        });
+        return ok;
+      }
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        status.classList.remove('is-error');
+        status.textContent = '';
+        if (!validate()) return;
+
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const labelSpan = submitBtn.querySelector('span');
+        const originalLabel = labelSpan.textContent;
+        submitBtn.disabled = true;
+        labelSpan.textContent = t('contact.sending', 'Sending…');
+
+        try {
+          const fd = new FormData(form);
+          const accessKey = fd.get('access_key');
+          if (!accessKey || accessKey === 'YOUR_WEB3FORMS_ACCESS_KEY') {
+            // No real key configured — show graceful error directing to mailto.
+            throw new Error('Form not yet configured. Please contact yuya@lotabin.com directly.');
+          }
+          const res = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: fd,
+            headers: { 'Accept': 'application/json' },
+          });
+          const data = await res.json().catch(() => ({}));
+          if (!res.ok || data.success === false) {
+            throw new Error(data.message || 'Submission failed');
+          }
+          // Success — swap to success state
+          wrap.classList.add('is-sent');
+          // Bring the success block into view (without scrollIntoView)
+          const successEl = document.getElementById('contact-success');
+          if (successEl) {
+            const y = successEl.getBoundingClientRect().top + window.scrollY - Math.max(0, (window.innerHeight - successEl.offsetHeight) / 2);
+            window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+          }
+        } catch (err) {
+          status.classList.add('is-error');
+          status.textContent = t('contact.error', 'Something went wrong. Please email yuya@lotabin.com directly.');
+        } finally {
+          submitBtn.disabled = false;
+          labelSpan.textContent = originalLabel;
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

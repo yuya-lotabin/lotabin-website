@@ -1,0 +1,11 @@
+/* TEAM */
+  Studio: lotabin
+  Founder: Yuya Kagawa
+  Contact: yuya@lotabin.com
+  Location: Nagoya, Aichi, Japan
+
+/* SITE */
+  Languages: English, Japanese
+  Focus: Short-form video ad production · Motion picture studio
+  Standards: HTML5, CSS custom properties, schema.org JSON-LD
+  Components: Vanilla JS (no framework), IntersectionObserver, scroll-driven motion
